@@ -1,0 +1,19 @@
+package tnp;
+
+message AuthenticationRequest {
+    optional string username = 1;
+    optional bytes password = 2;
+}
+
+message AuthenticationResponse {
+    enum Status {
+        OK = 0;
+        BAD_USER = 1;
+        BAD_PASS = 2;
+        SERVER_ERROR = 3;
+    }
+    optional Status status = 1;
+    optional string message = 2;
+    optional bytes auth_token = 3;
+    optional uint32 user_id = 4;
+}
